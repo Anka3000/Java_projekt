@@ -14,6 +14,20 @@ public class FilmRepository {
     @Autowired
     JdbcTemplate jdbcTemplate;
 
+    public int save(List<Film> filmy) {
+        filmy.forEach(film -> jdbcTemplate.update("INSERT INTO film (nazwa, ocena) VALUES(? , ?)",
+                film.getNazwa(), film.getOcena()
+        ));
+        return 1;
+    }
+
+    /*
+    public Film getById(int id) {
+        return jdbcTemplate.queryForObject("select id, nazwa,ocena from film WHERE" + "id = ?",
+                BeanPropertyRowMapper.newInstance(Film.class), id);
+    }
+     */
+
     public List<Film> getAll(){
         return jdbcTemplate.query("select id, nazwa,ocena from film", BeanPropertyRowMapper.newInstance(Film.class));
     }
