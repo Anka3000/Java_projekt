@@ -36,10 +36,30 @@ public class WypozyczalniaDvdController {
             film.setNazwa(updatedFilm.getNazwa());
             film.setOcena(updatedFilm.getOcena());
 
+            filmRepository.update(film);
             return 1;
         }else {
             return -1;
         }
+    }
+    @PatchMapping("filmy/{id}")
+    public int partiallyUpdate(@PathVariable("id") int id, @RequestBody Film updatedFilm) {
+        Film film = filmRepository.getById(id);
+        if (film != null) {
+            if(updatedFilm.getNazwa() != null) film.setNazwa(updatedFilm.getNazwa());
+            if(updatedFilm.getOcena() >0 ) film.setOcena(updatedFilm.getOcena());
+
+            filmRepository.update(film);
+            return 1;
+        }
+        else {
+            return -1;
+        }
+    }
+    //Usuwanie filmu po id
+    @DeleteMapping("filmy/{id}")
+    public int delete (@PathVariable("id") int id){
+        return filmRepository.delete(id);
     }
 
 }
