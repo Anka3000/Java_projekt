@@ -21,14 +21,17 @@ public class FilmRepository {
         return 1;
     }
 
-    /*
     public Film getById(int id) {
         return jdbcTemplate.queryForObject("select id, nazwa,ocena from film WHERE" + "id = ?",
                 BeanPropertyRowMapper.newInstance(Film.class), id);
     }
-     */
 
     public List<Film> getAll(){
         return jdbcTemplate.query("select id, nazwa,ocena from film", BeanPropertyRowMapper.newInstance(Film.class));
     }
+    public int update(Film film){
+        return jdbcTemplate.update("UPDATE film SET nazwa = ? ocena = ? WHERE id = ?",
+                film.getNazwa(), film.getOcena(), film.getId());
+    }
 }
+

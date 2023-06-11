@@ -18,15 +18,28 @@ public class WypozyczalniaDvdController {
     }
 
     //Wyświetlanie filmu po konkretnym id
-    /*
-    @GetMapping("/{id}")
+    @GetMapping("filmy/{id}")
     public Film getById(@PathVariable("id") int id){
-        return FilmRepository.getById(id);
+        return filmRepository.getById(id);
     }
-     */
+
+    //Dodawanie filmów do bazy
     @PostMapping("/filmy")
     public int add(@RequestBody List<Film> filmy){
-        return FilmRepository.save(filmy);
+        return filmRepository.save(filmy);
+    }
+    //Edytcja pojedynczego filmu
+    @PutMapping("filmy/{id}")
+    public int update(@PathVariable("id") int id, @RequestBody Film updatedFilm){
+        Film film =filmRepository.getById(id);
+        if(film != null){
+            film.setNazwa(updatedFilm.getNazwa());
+            film.setOcena(updatedFilm.getOcena());
+
+            return 1;
+        }else {
+            return -1;
+        }
     }
 
 }
