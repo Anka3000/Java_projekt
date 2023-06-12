@@ -33,6 +33,7 @@ public class WypozyczalniaDvdController {
     @PostMapping("/filmy")
     public int add(@RequestBody List<Plyta> plyty){
 
+
         return plytaRepository.save(plyty);
     }
     /*
