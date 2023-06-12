@@ -13,21 +13,20 @@ public class PlytaRepository {
     
     @Autowired
     JdbcTemplate jdbcTemplate;
-/*
-    public int save(List<Film> filmy) {
-        filmy.forEach(film -> jdbcTemplate.update("INSERT INTO film (nazwa, ocena) VALUES(? , ?)",
-                film.getNazwa(), film.getOcena()
-        ));
-        return 1;
-    }
 
-    public Film getById(int id) {
-        return jdbcTemplate.queryForObject("select id, nazwa,ocena from film WHERE" + "id = ?",
-                BeanPropertyRowMapper.newInstance(Film.class), id);
+    public Plyta getById(int id_plyta) {
+        return jdbcTemplate.queryForObject("SELECT ID_PLYTA, TYTUL, REZYSER, ROK_WYDANIA, GATUNEK, CENA_ZA_WYPOZYCZENIE FROM PLYTA WHERE " + "id_plyta = ?",
+                BeanPropertyRowMapper.newInstance(Plyta.class), id_plyta);
     }
-*/
     public List<Plyta> getAll(){
         return jdbcTemplate.query("SELECT ID_PLYTA, TYTUL, REZYSER, ROK_WYDANIA, GATUNEK, CENA_ZA_WYPOZYCZENIE FROM PLYTA", BeanPropertyRowMapper.newInstance(Plyta.class));
+    }
+    public int save(List<Plyta> plyty) {
+        plyty.forEach(plyta-> jdbcTemplate.update("INSERT INTO PLYTA (TYTUL, REZYSER, ROK_WYDANIA, GATUNEK, CENA_ZA_WYPOZYCZENIE) VALUES (?, ?, ?, ?, ?)",
+                plyta.getTytul(), plyta.getRezyser(), plyta.getRok_wydania(), plyta.getGatunek(), plyta.getCena()
+        ));
+        System.out.println(plyty);
+        return 1;
     }
     /*
     public int update(Film film){
