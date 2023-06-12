@@ -9,14 +9,19 @@ import org.springframework.web.bind.annotation.*;
 public class WypozyczalniaDvdController {
 
     @Autowired
-    FilmRepository filmRepository;
+    @GetMapping("/test")
+    public int test(){
+        return 1;
+    }
+
+    PlytaRepository plytaRepository;
 
     //Wyświetlanie całego katalogu
     @GetMapping("/filmy")
-    public List<Film> getAll(){
-        return filmRepository.getAll();
+    public List<Plyta> getAll(){
+        return plytaRepository.getAll();
     }
-
+/*
     //Wyświetlanie filmu po konkretnym id
     @GetMapping("filmy/{id}")
     public Film getById(@PathVariable("id") int id){
@@ -61,5 +66,5 @@ public class WypozyczalniaDvdController {
     public int delete (@PathVariable("id") int id){
         return filmRepository.delete(id);
     }
-
+*/
 }

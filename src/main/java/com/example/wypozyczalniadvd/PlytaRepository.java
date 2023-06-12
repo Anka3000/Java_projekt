@@ -9,11 +9,11 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class FilmRepository {
+public class PlytaRepository {
     
     @Autowired
     JdbcTemplate jdbcTemplate;
-
+/*
     public int save(List<Film> filmy) {
         filmy.forEach(film -> jdbcTemplate.update("INSERT INTO film (nazwa, ocena) VALUES(? , ?)",
                 film.getNazwa(), film.getOcena()
@@ -25,10 +25,11 @@ public class FilmRepository {
         return jdbcTemplate.queryForObject("select id, nazwa,ocena from film WHERE" + "id = ?",
                 BeanPropertyRowMapper.newInstance(Film.class), id);
     }
-
-    public List<Film> getAll(){
-        return jdbcTemplate.query("select id, nazwa,ocena from film", BeanPropertyRowMapper.newInstance(Film.class));
+*/
+    public List<Plyta> getAll(){
+        return jdbcTemplate.query("SELECT ID_PLYTA, TYTUL, REZYSER, ROK_WYDANIA, GATUNEK, CENA_ZA_WYPOZYCZENIE FROM PLYTA", BeanPropertyRowMapper.newInstance(Plyta.class));
     }
+    /*
     public int update(Film film){
         return jdbcTemplate.update("UPDATE film SET nazwa = ? ocena = ? WHERE id = ?",
                 film.getNazwa(), film.getOcena(), film.getId());
@@ -36,5 +37,6 @@ public class FilmRepository {
     public int delete(int id){
         return jdbcTemplate.update("DELETE FROM film WHERE id = ?", id);
     }
+     */
 }
 
