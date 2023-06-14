@@ -1,0 +1,40 @@
+body {
+	background-color: #4c638d;
+	margin: 0;
+    padding: 0;
+}
+
+body::before,
+body::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 250px;
+	background-color: #ffffff;
+}
+
+body::before {
+	left: 0;
+}
+
+body::after {
+	right: 0;
+}
+
+  h1 {
+	overflow: hidden;
+	font-family: "Gill Sans MT";
+	color: #264266;;
+	font-size: 40px;
+	background: rgba(255, 255, 255, 0.5);
+	height: 200px;
+	width: 800px;
+	background-position: center center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	margin: 0 auto;
+	margin-top:50px;
+}

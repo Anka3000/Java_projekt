@@ -1,0 +1,101 @@
+body {
+	background-color: #4c638d;
+	margin: 0;
+    padding: 0;
+}
+
+body::before,
+body::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 250px;
+	background-color: #ffffff;
+}
+
+body::before {
+	left: 0;
+}
+
+body::after {
+	right: 0;
+}
+
+  header
+  {
+	overflow: hidden;
+	font-family: "Gill Sans MT";
+	color: #264266;;
+	font-size: 40px;
+	background: rgba(255, 255, 255, 0.5);
+	height: 200px;
+	width: 800px;
+	background-position: center center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	margin: 0 auto;
+	margin-top:50px;
+}
+
+.przyciski {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	text-align: center;
+	margin-top: 60px;
+	margin-left: 370px;
+	margin-right: 370px;
+	background: rgba(255, 255, 255, 0.5);
+}
+
+.przyciski label {
+	font-family: "Gill Sans MT";
+	display: block;
+	color:#264266;
+	font-size:20px;
+	text-align: left;
+  }
+  
+  .przyciski input[type="text"] {
+	width: 200px;
+	padding: 5px;
+	margin-bottom: 5px;
+  }
+  
+  .przyciski button {
+	font-family: "Gill Sans MT";
+	color: #ffffff;
+	font-size: 18px;
+	background-color: #6a8bba;
+	border: none;
+	padding: 10px 20px;
+	cursor: pointer;
+	border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .przyciski button:hover {
+	font-family: "Gill Sans MT";
+	border-color: #ffffff;
+	background-color: #6a8bba;
+	border-radius: 5px;
+  }
+
+  input[type="text"],
+input[type="login"] {
+  height: 10px;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 205px;
+}
+
+input[type="password"] {
+  height: 18px;
+}
